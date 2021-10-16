@@ -27,36 +27,15 @@ Feature: Configurar produto
         Then o produto volta para as configurações iniciais
 
     Scenario Outline: Produto inserido com sucesso
-        When escolher a cor <cor> 
+        When escolher a cor <cor>
         And tamanho <tamanho>
         And quantidade <quantidade>
-            | quantidade |
-            | 1          |
-            | 2          |
-            | 3          |
-            | 4          |
-            | 5          |
-            | 6          |
-            | 7          |
-            | 8          |
-            | 9          |
-            | 10         |
-        Then exibir mensagem "produto inserido ao carrinho"
+        Then exibir mensagem <mensagem>
 
             Exemples:
-            | cor    | tamanho |
-            | Blue   | XS      |
-            | Blue   | S       |
-            | Blue   | M       |
-            | Blue   | L       |
-            | Blue   | XL      |
-            | Orange | XS      |
-            | Orange | S       |
-            | Orange | M       |
-            | Orange | L       |
-            | Orange | XL      |
-            | Red    | XS      |
-            | Red    | S       |
-            | Red    | M       |
-            | Red    | L       |
-            | Red    | XL      |
+            | cor      | tamanho | quantidade | mensagem                       |
+            | "Blue"   | "XS"    | "10"       | "Produto inserido com sucesso" |
+            | vazio    | "S"     | "9"        | "Escolha a cor!"               |
+            | "Red"    | vazio   | "3"        | "Escolha o tamanho!"           |
+            | "Orange" | "L "    | "11"       | "Escolha até 10 produtos!"     |
+            | "Red"    | "x"     | vazio      | "Escolha a quantidade!"        |

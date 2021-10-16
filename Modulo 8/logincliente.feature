@@ -17,20 +17,20 @@ Feature: Login na plataforma
         Then exibir mensagem de alerta "Usuario ou senha inválidos"
 
     Scenario: Usuário inexistente
-        When digitar o usuário "asdasd@ebac.com.br"
+        When digitar o usuário "asdasdebac.com.br"
         And E a senha "senha@123"
         Then exibir mensagem de alerta "Usuario ou senha inválidos"
 
     Scenario Outline: Autenticar multipos usuários
         When digitar <usuario>
         And a <senha>
-        Then direcionar para tela de checkout
+        Then <mensagem>
 
-            Exemplos:
-            | usuario             | senha       |
-            | "joao@ebac.com.br"  | "teste@123" |
-            | "maria@ebac.com.br" | "teste@124" |
-            | "jose@ebac.com.br"  | "teste@125" |
-            | "joana@ebac.com.br" | "teste@126" |
-
+            Exemples:
+            | usuario             | senha       | mensagem                     |
+            | "joao@ebac.com.br"  | "teste@123" | "Usuario e senha válidos"    |
+            | "maria@ebac.com.br" | "23356569"  | "Usuário ou senha inválidos" |
+            | "joseebac.com.br"   | "teste@125" | "Usuário ou senha inválidos" |
+            | "joana@ebac.com.br" | vazio       | "Inserir senha."             |
+            | vazio               | "teste@123" | "Inserir usuário."           |
 
