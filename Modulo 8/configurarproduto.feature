@@ -7,21 +7,6 @@ Feature: Configurar produto
     Background:
         Given esteja na página do produto
 
-    Scenario: Produto inserido com sucesso
-        When escolher a cor laranja e tamanho L
-        And quantidade 10
-        Then exibir mensagem "produto inserido no carrinho"
-
-    Scenario: Produto indisponivel
-        When escolher a cor laranja e tamanho P
-        And quantidade 10
-        Then exibir mensagem "produto indisponivel"
-
-    Scenario: Quantidade não permitida
-        When escolher a cor laranja e tamanho L
-        And quantidade 11
-        Then exibir mensagem "Quantidade não permitida"
-
     Scenario: Estado original
         When clicar no botão limpar
         Then o produto volta para as configurações iniciais
@@ -38,4 +23,5 @@ Feature: Configurar produto
             | vazio    | "S"     | "9"        | "Escolha a cor!"               |
             | "Red"    | vazio   | "3"        | "Escolha o tamanho!"           |
             | "Orange" | "L "    | "11"       | "Escolha até 10 produtos!"     |
-            | "Red"    | "x"     | vazio      | "Escolha a quantidade!"        |
+            | "Red"    | "xs"    | vazio      | "Escolha a quantidade!"        |
+            | "Yellow" | "xs"    | "7"        | "Produto indisponivel."        |

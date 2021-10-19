@@ -6,19 +6,6 @@ Feature: Tela de cadastro
     Background:
         Given que esteja na página de cadastro do checkout
 
-    Scenario: Compra finalizada com sucesso
-        When preencher todos os dados obrigatorios
-        Then exibir mensagem "Compra finalizada com sucesso"
-
-    Scenario: Email inválido
-        When preencher todos os dados obrigatorios
-        And email "aasdinexistente.com"
-        Then exibir mensagem de alerta "Email inválido"
-
-    Scenario: Campos vazios
-        When deixar todos os campos vazios
-        Then exibir mensagem de alerta "Preencher os campos"
-
     Scenario Outline: Finalizada com sucesso
         When preencher <nome>
         And <sobrenome>
@@ -39,4 +26,4 @@ Feature: Tela de cadastro
             | "Jose" | "Gomez"   | "Argentina" | "Rosario"     | vazio         | "jose@ebac.com.br"  | "Preencher a telefone!"     |
             | "Jose" | "Gomez"   | "Argentina" | "Rosario"     | "98956655102" | vazio               | "Preencher o email!"        |
             | vazio  | vazio     | vazio       | vazio         | vazio         | vazio               | "Preencher todos os campos" |
-            | "Jose" | "Gomez"   | "Argentina" | "Rosario"     | "15155565326" | "joebac.com.br"     | "Email inválido"             |
+            | "Jose" | "Gomez"   | "Argentina" | "Rosario"     | "15155565326" | "joebac.com.br"     | "Email inválido"            |
